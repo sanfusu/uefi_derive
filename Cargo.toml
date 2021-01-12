@@ -9,7 +9,9 @@ edition = "2018"
 proc-macro = true
 
 [dependencies]
-guid = { git = "https://github.com/sanfusu/guid" }
+guid = { path="guid" }
 syn = "1.0"
 quote = "1.0"
 proc-macro2 = "1.0"
+uefi_raw = { path = "uefi_raw" }
+version = { path = "version" }
