@@ -1,5 +1,3 @@
-use std::convert::TryInto;
-
 use guid::Guid;
 use proc_macro2::TokenStream;
 use quote::ToTokens;
@@ -17,7 +15,7 @@ pub(crate) fn protocol_derive(input: TokenStream) -> TokenStream {
     {
         if let syn::Meta::NameValue(meta) = guid_helper_attr.parse_meta().unwrap() {
             if let syn::Lit::Str(args) = meta.lit {
-                let guid_args: Guid = args.value().try_into().unwrap();
+                let guid_args: Guid = args.value().parse().unwrap();
                 let data1 = guid_args.data1;
                 let data2 = guid_args.data2;
                 let data3 = guid_args.data3;
